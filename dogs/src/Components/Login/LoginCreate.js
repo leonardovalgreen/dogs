@@ -1,15 +1,15 @@
-import React from "react";
-import useForm from "../../Hooks/useForm";
-import Button from "../Forms/Button";
-import Error from "../Helper/Error";
-import Input from "../Forms/Input";
-import { USER_POST } from "../../api";
-import { UserContext } from "../../UserContext";
-import useFetch from "../../Hooks/useFetch";
+import React from 'react';
+import Input from '../Forms/Input';
+import Button from '../Forms/Button';
+import Error from '../Helper/Error';
+import useForm from '../../Hooks/useForm';
+import { USER_POST } from '../../Api';
+import { UserContext } from '../../UserContext';
+import useFetch from '../../Hooks/useFetch';
 
 const LoginCreate = () => {
   const username = useForm();
-  const email = useForm("email");
+  const email = useForm('email');
   const password = useForm();
 
   const { userLogin } = React.useContext(UserContext);
@@ -24,7 +24,6 @@ const LoginCreate = () => {
     });
     const { response } = await request(url, options);
     if (response.ok) userLogin(username.value, password.value);
-    console.log(response);
   }
 
   return (
